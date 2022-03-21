@@ -1,0 +1,1610 @@
+{
+	"info": {
+		"_postman_id": "0cd93359-ee5f-471a-a070-718e195069bb",
+		"name": "PFE Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Projects",
+			"item": [
+				{
+					"name": "Columns",
+					"item": [
+						{
+							"name": "Add Column",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "token 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",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Review\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.github.com/projects/14218384/columns",
+									"protocol": "https",
+									"host": [
+										"api",
+										"github",
+										"com"
+									],
+									"path": [
+										"projects",
+										"14218384",
+										"columns"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List Project Columns",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "token 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",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.github.com/projects/14218384/columns",
+									"protocol": "https",
+									"host": [
+										"api",
+										"github",
+										"com"
+									],
+									"path": [
+										"projects",
+										"14218384",
+										"columns"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Column",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "token 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",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"TO DO\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.github.com/projects/columns/18018585",
+									"protocol": "https",
+									"host": [
+										"api",
+										"github",
+										"com"
+									],
+									"path": [
+										"projects",
+										"columns",
+										"18018585"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Card",
+					"item": [
+						{
+							"name": "Create Card",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "token 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",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"content_id\": 1163991714,\r\n\"content_type\": \"Issue\"\r\n}\r\n\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.github.com/projects/columns/18054538/cards",
+									"protocol": "https",
+									"host": [
+										"api",
+										"github",
+										"com"
+									],
+									"path": [
+										"projects",
+										"columns",
+										"18054538",
+										"cards"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Collaborators",
+					"item": [
+						{
+							"name": "Add Collaborator to project",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "token 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",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"permission\": \"read\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.github.com/projects/14218384/collaborators/selimref",
+									"protocol": "https",
+									"host": [
+										"api",
+										"github",
+										"com"
+									],
+									"path": [
+										"projects",
+										"14218384",
+										"collaborators",
+										"selimref"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Got User permission project",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "token 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",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.github.com/projects/14218384/collaborators/FaresEsprit20/permission",
+									"protocol": "https",
+									"host": [
+										"api",
+										"github",
+										"com"
+									],
+									"path": [
+										"projects",
+										"14218384",
+										"collaborators",
+										"FaresEsprit20",
+										"permission"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List Collaborators",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "token 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",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.github.com/projects/14218384/collaborators/selimref/permission",
+									"protocol": "https",
+									"host": [
+										"api",
+										"github",
+										"com"
+									],
+									"path": [
+										"projects",
+										"14218384",
+										"collaborators",
+										"selimref",
+										"permission"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Got User permission project Copy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "token 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",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.github.com/projects/14218384/collaborators/FaresEsprit20",
+									"protocol": "https",
+									"host": [
+										"api",
+										"github",
+										"com"
+									],
+									"path": [
+										"projects",
+										"14218384",
+										"collaborators",
+										"FaresEsprit20"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Create Project Repository",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token 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",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"A new APi Github Repository Project\",\r\n    \"body\": \"A description body for My Project\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.github.com/repos/FaresEsprit20/QRProject/projects",
+							"protocol": "https",
+							"host": [
+								"api",
+								"github",
+								"com"
+							],
+							"path": [
+								"repos",
+								"FaresEsprit20",
+								"QRProject",
+								"projects"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "A new Project by Api",
+									"disabled": true
+								},
+								{
+									"key": "owner",
+									"value": "FaresEsprit20",
+									"disabled": true
+								},
+								{
+									"key": "repo",
+									"value": "QRProject",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Project User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token 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",
+								"type": "default"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"A new APi Github Project under projects section\",\r\n    \"body\": \"A description body for My Project\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.github.com/user/projects",
+							"protocol": "https",
+							"host": [
+								"api",
+								"github",
+								"com"
+							],
+							"path": [
+								"user",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Project Organisation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token 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",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"SLim project\",\r\n    \"body\": \"A description body for My Project\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.github.com/orgs/faresorg/projects",
+							"protocol": "https",
+							"host": [
+								"api",
+								"github",
+								"com"
+							],
+							"path": [
+								"orgs",
+								"faresorg",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Project By Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token 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",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://api.github.com/projects/14213390",
+							"protocol": "https",
+							"host": [
+								"api",
+								"github",
+								"com"
+							],
+							"path": [
+								"projects",
+								"14213390"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List User Projects",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token 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",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://api.github.com/users/FaresEsprit20/projects",
+							"protocol": "https",
+							"host": [
+								"api",
+								"github",
+								"com"
+							],
+							"path": [
+								"users",
+								"FaresEsprit20",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List By Organisation",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token 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",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://api.github.com/orgs/faresorg/projects?state=open",
+							"protocol": "https",
+							"host": [
+								"api",
+								"github",
+								"com"
+							],
+							"path": [
+								"orgs",
+								"faresorg",
+								"projects"
+							],
+							"query": [
+								{
+									"key": "state",
+									"value": "open"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List By Repository",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token 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",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://api.github.com/repos/FaresEsprit20/QRProject/projects?state=closed",
+							"protocol": "https",
+							"host": [
+								"api",
+								"github",
+								"com"
+							],
+							"path": [
+								"repos",
+								"FaresEsprit20",
+								"QRProject",
+								"projects"
+							],
+							"query": [
+								{
+									"key": "state",
+									"value": "closed"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Project",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token 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",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n\"organization_permission\": \"read\",\r\n\"name\": \" a new patched\",\r\n\"body\": \"patched\",\r\n\"state\": \"open\",\r\n\"private\": false\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.github.com/projects/14218136",
+							"protocol": "https",
+							"host": [
+								"api",
+								"github",
+								"com"
+							],
+							"path": [
+								"projects",
+								"14218136"
+							],
+							"query": [
+								{
+									"key": "organization_permission",
+									"value": "read",
+									"disabled": true
+								},
+								{
+									"key": "private",
+									"value": "false",
+									"disabled": true
+								},
+								{
+									"key": "state",
+									"value": "open",
+									"disabled": true
+								},
+								{
+									"key": "body",
+									"value": "patched",
+									"disabled": true
+								},
+								{
+									"key": "pr",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Project",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token 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",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://api.github.com/projects/14213390",
+							"protocol": "https",
+							"host": [
+								"api",
+								"github",
+								"com"
+							],
+							"path": [
+								"projects",
+								"14213390"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Teams",
+			"item": [
+				{
+					"name": "Add Team",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token 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",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"A New Team\",\r\n    \"description\": \"A talented team\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.github.com/orgs/faresorg/teams",
+							"protocol": "https",
+							"host": [
+								"api",
+								"github",
+								"com"
+							],
+							"path": [
+								"orgs",
+								"faresorg",
+								"teams"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Team By Slug",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token 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",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.github.com/orgs/faresorg/teams/a-new-team",
+							"protocol": "https",
+							"host": [
+								"api",
+								"github",
+								"com"
+							],
+							"path": [
+								"orgs",
+								"faresorg",
+								"teams",
+								"a-new-team"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Teams By Organisation",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token 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",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.github.com/orgs/faresorg/teams",
+							"protocol": "https",
+							"host": [
+								"api",
+								"github",
+								"com"
+							],
+							"path": [
+								"orgs",
+								"faresorg",
+								"teams"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Team members",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token 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",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.github.com/orgs/faresorg/teams/a-new-team/members",
+							"protocol": "https",
+							"host": [
+								"api",
+								"github",
+								"com"
+							],
+							"path": [
+								"orgs",
+								"faresorg",
+								"teams",
+								"a-new-team",
+								"members"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Team member",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token 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",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.github.com/orgs/faresorg/teams/a-new-team/memberships/selimref",
+							"protocol": "https",
+							"host": [
+								"api",
+								"github",
+								"com"
+							],
+							"path": [
+								"orgs",
+								"faresorg",
+								"teams",
+								"a-new-team",
+								"memberships",
+								"selimref"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Team member",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token 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",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.github.com/orgs/faresorg/teams/a-new-team/memberships/selimref",
+							"protocol": "https",
+							"host": [
+								"api",
+								"github",
+								"com"
+							],
+							"path": [
+								"orgs",
+								"faresorg",
+								"teams",
+								"a-new-team",
+								"memberships",
+								"selimref"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify member membership",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token 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",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.github.com/orgs/faresorg/teams/a-new-team/memberships/selimref",
+							"protocol": "https",
+							"host": [
+								"api",
+								"github",
+								"com"
+							],
+							"path": [
+								"orgs",
+								"faresorg",
+								"teams",
+								"a-new-team",
+								"memberships",
+								"selimref"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Team Projects",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token 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",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.github.com/orgs/faresorg/teams/a-new-team/projects",
+							"protocol": "https",
+							"host": [
+								"api",
+								"github",
+								"com"
+							],
+							"path": [
+								"orgs",
+								"faresorg",
+								"teams",
+								"a-new-team",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Issues",
+			"item": [
+				{
+					"name": "Labels",
+					"item": [
+						{
+							"name": "Create Label",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "token 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",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"epic\",\r\n    \"color\": \"00B3BF\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.github.com/repos/faresorg/repo/labels",
+									"protocol": "https",
+									"host": [
+										"api",
+										"github",
+										"com"
+									],
+									"path": [
+										"repos",
+										"faresorg",
+										"repo",
+										"labels"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Set Labels for Issue",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "token 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",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"labels\": [\"epic\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.github.com/repos/faresorg/repo/issues/7/labels",
+									"protocol": "https",
+									"host": [
+										"api",
+										"github",
+										"com"
+									],
+									"path": [
+										"repos",
+										"faresorg",
+										"repo",
+										"issues",
+										"7",
+										"labels"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Label",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "token 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",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"color\": \"00B3BF\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.github.com/repos/faresorg/repo/labels/User Management",
+									"protocol": "https",
+									"host": [
+										"api",
+										"github",
+										"com"
+									],
+									"path": [
+										"repos",
+										"faresorg",
+										"repo",
+										"labels",
+										"User Management"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove label from Issue",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "token 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",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"labels\": [\"epic\",\"User Managemenr\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.github.com/repos/faresorg/repo/issues/5/labels/epic",
+									"protocol": "https",
+									"host": [
+										"api",
+										"github",
+										"com"
+									],
+									"path": [
+										"repos",
+										"faresorg",
+										"repo",
+										"issues",
+										"5",
+										"labels",
+										"epic"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete label",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "token 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",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"labels\": [\"epic\",\"User Managemenr\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.github.com/repos/faresorg/repo/labels/User Managemenr",
+									"protocol": "https",
+									"host": [
+										"api",
+										"github",
+										"com"
+									],
+									"path": [
+										"repos",
+										"faresorg",
+										"repo",
+										"labels",
+										"User Managemenr"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Assignees",
+					"item": [
+						{
+							"name": "List Assignees",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "token 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",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.github.com/repos/faresorg/repo/assignees",
+									"protocol": "https",
+									"host": [
+										"api",
+										"github",
+										"com"
+									],
+									"path": [
+										"repos",
+										"faresorg",
+										"repo",
+										"assignees"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Assignees",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "token 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",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.github.com/repos/faresorg/repo/issues/5/assignees",
+									"protocol": "https",
+									"host": [
+										"api",
+										"github",
+										"com"
+									],
+									"path": [
+										"repos",
+										"faresorg",
+										"repo",
+										"issues",
+										"5",
+										"assignees"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove assignee",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "token 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",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.github.com/repos/faresorg/repo/issues/5/assignees",
+									"protocol": "https",
+									"host": [
+										"api",
+										"github",
+										"com"
+									],
+									"path": [
+										"repos",
+										"faresorg",
+										"repo",
+										"issues",
+										"5",
+										"assignees"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Check Assignee ability",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "token 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",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.github.com/repos/faresorg/repo/assignees/5",
+									"protocol": "https",
+									"host": [
+										"api",
+										"github",
+										"com"
+									],
+									"path": [
+										"repos",
+										"faresorg",
+										"repo",
+										"assignees",
+										"5"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Create Issue",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token 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",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"User Management\",\r\n    \"body\": \"epic\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.github.com/repos/faresorg/repo/issues",
+							"protocol": "https",
+							"host": [
+								"api",
+								"github",
+								"com"
+							],
+							"path": [
+								"repos",
+								"faresorg",
+								"repo",
+								"issues"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Issues from Repository",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token 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",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"state\":\"open\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.github.com/repos/faresorg/repo",
+							"protocol": "https",
+							"host": [
+								"api",
+								"github",
+								"com"
+							],
+							"path": [
+								"repos",
+								"faresorg",
+								"repo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Auth User Issues",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token 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",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"state\":\"open\",\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.github.com/user/issues",
+							"protocol": "https",
+							"host": [
+								"api",
+								"github",
+								"com"
+							],
+							"path": [
+								"user",
+								"issues"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Issue By number Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token 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",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.github.com/repos/faresorg/repo/issues/5",
+							"protocol": "https",
+							"host": [
+								"api",
+								"github",
+								"com"
+							],
+							"path": [
+								"repos",
+								"faresorg",
+								"repo",
+								"issues",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Issue",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token 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",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"assignees\": [\r\n        \"FaresEsprit20\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.github.com/repos/faresorg/repo/issues/5",
+							"protocol": "https",
+							"host": [
+								"api",
+								"github",
+								"com"
+							],
+							"path": [
+								"repos",
+								"faresorg",
+								"repo",
+								"issues",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": []
+		},
+		{
+			"name": "Activities",
+			"item": []
+		}
+	]
+}
