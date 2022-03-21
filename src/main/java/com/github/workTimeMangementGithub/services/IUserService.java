@@ -13,13 +13,13 @@ public interface IUserService {
 	//********Api Github*********
 	//User management
 	public ResponseUserJSON getAuthenticatedUserAPI(String token); //200ok, 304,401,403(forbidden)
-	public UserGithubDTO GetUserByUserNameAPI(String username); //200ok, 404 not found
-	public UserGithubDTO UpdateAuthUserNameAPI(String name);	//200ok , 304(not modified),401,403,404,422
+	public ResponseUserJSON GetUserByUserNameAPI(String username,String token); //200ok, 404 not found
+	public ResponseUserJSON UpdateAuthUserNameAPI(String name,String token);	//200ok , 304(not modified),401,403,404,422
 	//User Projects
-	public void AddProjectCollaboratorAPI(UserGithubDTO user,long projectId); //204ok,304(not modified),401,403,404,422
-	public UserGithubDTO GetProjectCollaboratorPermissionAPI(long projectId);//200ok , 304,401,403,404,422
-	public List<UserGithubDTO> GetProjectCollaboratorsAPI(long projectId);//200ok,304,401,404,422
-	public void DeleteProjectCollaboratorAPI(long projectId, String username);//204ok ,304,401403;404,422
+	public ResponseUserJSON AddProjectCollaboratorAPI(UserGithubDTO user,long projectId,String token); //204ok,304(not modified),401,403,404,422
+	public ResponseUserJSON GetProjectCollaboratorPermissionAPI(long projectId,String token);//200ok , 304,401,403,404,422
+	public ResponseUserJSON GetProjectCollaboratorsAPI(long projectId,String token);//200ok,304,401,404,422
+	public ResponseUserJSON DeleteProjectCollaboratorAPI(long projectId, String username,String token);//204ok ,304,401403;404,422
 	
 	//*******Spring Data JPA *******//
 	//User management

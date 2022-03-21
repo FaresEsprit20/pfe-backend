@@ -16,7 +16,5 @@ public class GithubConfiguration {
     return  new RestTemplate();
   }
 
-  @Bean
- public User  UserConstructor() { return new User(); }
 
 }

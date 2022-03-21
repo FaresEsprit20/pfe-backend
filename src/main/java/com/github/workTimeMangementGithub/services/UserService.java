@@ -7,7 +7,6 @@ import java.util.List;
 import com.github.workTimeMangementGithub.dto.github.UserGithubDTO;
 import com.github.workTimeMangementGithub.entities.*;
 import com.github.workTimeMangementGithub.response.ResponseUserJSON;
-import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -30,7 +29,6 @@ public class UserService implements IUserService {
 
 	String apiBaseUrl = GITHUB_BASE_URL;
 
-
 	private final RestTemplate restTemplate;
 
 	public UserService(RestTemplate restTemplate) {
@@ -41,13 +39,12 @@ public class UserService implements IUserService {
 	public ResponseUserJSON getAuthenticatedUserAPI(String token) {
 		// TODO Auto-generated method stub
 		String url = this.apiBaseUrl + "/user";
-		ResponseEntity<UserGithubDTO> response;
 		try {
 			HttpHeaders headers = new HttpHeaders();
 			headers.setContentType(MediaType.APPLICATION_JSON);
 			headers.set("Authorization", "Bearer " + token);
 			HttpEntity<String> entity = new HttpEntity<String>(headers);
-			response = restTemplate.exchange(url, HttpMethod.GET, entity, UserGithubDTO.class);
+			ResponseEntity<UserGithubDTO> response = restTemplate.exchange(url, HttpMethod.GET, entity, UserGithubDTO.class);
 			int statuscode = response.getStatusCode().value();
 			String message = "";
 			switch (statuscode) {
@@ -66,7 +63,6 @@ public class UserService implements IUserService {
 				case 500:
 					message = "Internal server error ";
 					break;
-
 			}
 			log.debug("Api Github call status code " + response.getStatusCode().toString());
 			log.debug("Api Github call message " + message);
@@ -85,146 +81,361 @@ public class UserService implements IUserService {
 			//return new ResponseUserJSON("Internal server error", 500,null,null );
 		}
      return null;
-
 	}
 
 	@Override
-	public UserGithubDTO GetUserByUserNameAPI(String username) {
+	public ResponseUserJSON GetUserByUserNameAPI(String username,String token) {
 		// TODO Auto-generated method stub
+		String url = this.apiBaseUrl + "/users/"+username;
+		log.warn("url  "+url);
+		try {
+			HttpHeaders headers = new HttpHeaders();
+			headers.setContentType(MediaType.APPLICATION_JSON);
+			headers.set("Authorization", "Bearer " + token);
+			HttpEntity<String> entity = new HttpEntity<String>(headers);
+			ResponseEntity<UserGithubDTO>	response = restTemplate.exchange(url, HttpMethod.GET, entity, UserGithubDTO.class);
+			int statuscode = response.getStatusCode().value();
+			String message = "";
+			switch (statuscode) {
+				case 200:
+					message = "Okay";
+					break;
+				case 304:
+					message = "Not Modified";
+					break;
+				case 401:
+					message = "Requires Authentication , Verify your Github Personal Access Token";
+					break;
+				case 403:
+					message = "Forbidden";
+					break;
+				case 404:
+					message = "NOT FOUND";
+					break;
+				case 500:
+					message = "Internal server error ";
+					break;
+			}
+			log.debug("Api Github call status code " + response.getStatusCode().toString());
+			log.debug("Api Github call message " + message);
+			log.debug("Api Github call body " + response.getBody());
+			List<UserGithubDTO> bodyGithub = new ArrayList<UserGithubDTO>();
+			bodyGithub.add(response.getBody());
+			return new ResponseUserJSON(message, statuscode, bodyGithub, null);
+		} catch (Exception exception) {
+			log.error("Erorosadasdasdasdsadasdsa", exception.getCause());
+			log.error("Eroro sadasdasdasdasdas", exception.getMessage());
+			log.error("Eroro sadasdasd", exception.getStackTrace());
+			log.warn("Error while query , exception occured");
+		}
 		return null;
 	}
 
 	@Override
-	public UserGithubDTO UpdateAuthUserNameAPI(String name) {
-		// TODO Auto-generated method stub
+	public ResponseUserJSON UpdateAuthUserNameAPI(String name,String token) {
+		String url = this.apiBaseUrl + "/user";
+		try {
+			HttpHeaders headers = new HttpHeaders();
+			headers.setContentType(MediaType.APPLICATION_JSON);
+			headers.set("Authorization", "Bearer " + token);
+			HttpEntity<String> entity = new HttpEntity<String>(name,headers);
+			ResponseEntity response = restTemplate.exchange(url, HttpMethod.PATCH, entity, Void.class);
+			int statuscode = response.getStatusCode().value();
+			String message = "";
+			switch (statuscode) {
+				case 200:
+					message = "Okay";
+					break;
+				case 304:
+					message = "Not Modified";
+					break;
+				case 401:
+					message = "Requires Authentication , Verify your Github Personal Access Token";
+					break;
+				case 403:
+					message = "Forbidden";
+					break;
+				case 404:
+					message = "NOT FOUND";
+					break;
+				case 500:
+					message = "Internal server error ";
+					break;
+			}
+			log.debug("Api Github call status code " + response.getStatusCode().toString());
+			log.debug("Api Github call message " + message);
+			log.debug("Api Github call body " + response.getBody());
+			//List<UserGithubDTO> bodyGithub = new ArrayList<UserGithubDTO>();
+			//bodyGithub.add(response.getBody());
+			return new ResponseUserJSON(message, statuscode, null, null);
+		} catch (Exception exception) {
+			log.error("Erorosadasdasdasdsadasdsa", exception.getCause());
+			log.error("Eroro sadasdasdasdasdas", exception.getMessage());
+			log.error("Eroro sadasdasd", exception.getStackTrace());
+			log.warn("Error while query , exception occured");
+		}
+		return null;
+	}
+
+
+	@Override
+	public ResponseUserJSON AddProjectCollaboratorAPI(UserGithubDTO user, long projectId,String token) {
+		String url = this.apiBaseUrl + "/user";
+		try {
+			HttpHeaders headers = new HttpHeaders();
+			headers.setContentType(MediaType.APPLICATION_JSON);
+			headers.set("Authorization", "Bearer " + token);
+			HttpEntity<String> entity = new HttpEntity<String>(headers);
+			ResponseEntity<UserGithubDTO> response = restTemplate.exchange(url, HttpMethod.GET, entity, UserGithubDTO.class);
+			int statuscode = response.getStatusCode().value();
+			String message = "";
+			switch (statuscode) {
+				case 200:
+					message = "Okay";
+					break;
+				case 304:
+					message = "Not Modified";
+					break;
+				case 401:
+					message = "Requires Authentication , Verify your Github Personal Access Token";
+					break;
+				case 403:
+					message = "Forbidden";
+					break;
+				case 500:
+					message = "Internal server error ";
+					break;
+			}
+			log.debug("Api Github call status code " + response.getStatusCode().toString());
+			log.debug("Api Github call message " + message);
+			log.debug("Api Github call body " + response.getBody());
+			List<UserGithubDTO> bodyGithub = new ArrayList<UserGithubDTO>();
+			bodyGithub.add(response.getBody());
+			return new ResponseUserJSON(message, statuscode, bodyGithub, null);
+		} catch (Exception exception) {
+			log.error("Erorosadasdasdasdsadasdsa", exception.getCause());
+			log.error("Eroro sadasdasdasdasdas", exception.getMessage());
+			log.error("Eroro sadasdasd", exception.getStackTrace());
+			log.warn("Error while query , exception occured");
+		}
 		return null;
 	}
 
 	@Override
-	public void AddProjectCollaboratorAPI(UserGithubDTO user, long projectId) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public UserGithubDTO GetProjectCollaboratorPermissionAPI(long projectId) {
-		// TODO Auto-generated method stub
+	public ResponseUserJSON GetProjectCollaboratorPermissionAPI(long projectId,String token) {
+		String url = this.apiBaseUrl + "/user";
+		try {
+			HttpHeaders headers = new HttpHeaders();
+			headers.setContentType(MediaType.APPLICATION_JSON);
+			headers.set("Authorization", "Bearer " + token);
+			HttpEntity<String> entity = new HttpEntity<String>(headers);
+			ResponseEntity<UserGithubDTO> response = restTemplate.exchange(url, HttpMethod.GET, entity, UserGithubDTO.class);
+			int statuscode = response.getStatusCode().value();
+			String message = "";
+			switch (statuscode) {
+				case 200:
+					message = "Okay";
+					break;
+				case 304:
+					message = "Not Modified";
+					break;
+				case 401:
+					message = "Requires Authentication , Verify your Github Personal Access Token";
+					break;
+				case 403:
+					message = "Forbidden";
+					break;
+				case 500:
+					message = "Internal server error ";
+					break;
+			}
+			log.debug("Api Github call status code " + response.getStatusCode().toString());
+			log.debug("Api Github call message " + message);
+			log.debug("Api Github call body " + response.getBody());
+			List<UserGithubDTO> bodyGithub = new ArrayList<UserGithubDTO>();
+			bodyGithub.add(response.getBody());
+			return new ResponseUserJSON(message, statuscode, bodyGithub, null);
+		} catch (Exception exception) {
+			log.error("Erorosadasdasdasdsadasdsa", exception.getCause());
+			log.error("Eroro sadasdasdasdasdas", exception.getMessage());
+			log.error("Eroro sadasdasd", exception.getStackTrace());
+			log.warn("Error while query , exception occured");
+		}
 		return null;
 	}
 
 	@Override
-	public List<UserGithubDTO> GetProjectCollaboratorsAPI(long projectId) {
-		// TODO Auto-generated method stub
+	public ResponseUserJSON GetProjectCollaboratorsAPI(long projectId,String token) {
+		String url = this.apiBaseUrl + "/user";
+		try {
+			HttpHeaders headers = new HttpHeaders();
+			headers.setContentType(MediaType.APPLICATION_JSON);
+			headers.set("Authorization", "Bearer " + token);
+			HttpEntity<String> entity = new HttpEntity<String>(headers);
+			ResponseEntity<UserGithubDTO> response = restTemplate.exchange(url, HttpMethod.GET, entity, UserGithubDTO.class);
+			int statuscode = response.getStatusCode().value();
+			String message = "";
+			switch (statuscode) {
+				case 200:
+					message = "Okay";
+					break;
+				case 304:
+					message = "Not Modified";
+					break;
+				case 401:
+					message = "Requires Authentication , Verify your Github Personal Access Token";
+					break;
+				case 403:
+					message = "Forbidden";
+					break;
+				case 500:
+					message = "Internal server error ";
+					break;
+			}
+			log.debug("Api Github call status code " + response.getStatusCode().toString());
+			log.debug("Api Github call message " + message);
+			log.debug("Api Github call body " + response.getBody());
+			List<UserGithubDTO> bodyGithub = new ArrayList<UserGithubDTO>();
+			bodyGithub.add(response.getBody());
+			return new ResponseUserJSON(message, statuscode, bodyGithub, null);
+		} catch (Exception exception) {
+			log.error("Erorosadasdasdasdsadasdsa", exception.getCause());
+			log.error("Eroro sadasdasdasdasdas", exception.getMessage());
+			log.error("Eroro sadasdasd", exception.getStackTrace());
+			log.warn("Error while query , exception occured");
+		}
 		return null;
 	}
 
 	@Override
-	public void DeleteProjectCollaboratorAPI(long projectId, String username) {
-		// TODO Auto-generated method stub
-
+	public ResponseUserJSON DeleteProjectCollaboratorAPI(long projectId, String username,String token) {
+		String url = this.apiBaseUrl + "/user";
+		try {
+			HttpHeaders headers = new HttpHeaders();
+			headers.setContentType(MediaType.APPLICATION_JSON);
+			headers.set("Authorization", "Bearer " + token);
+			HttpEntity<String> entity = new HttpEntity<String>(headers);
+			ResponseEntity<UserGithubDTO> response = restTemplate.exchange(url, HttpMethod.GET, entity, UserGithubDTO.class);
+			int statuscode = response.getStatusCode().value();
+			String message = "";
+			switch (statuscode) {
+				case 200:
+					message = "Okay";
+					break;
+				case 304:
+					message = "Not Modified";
+					break;
+				case 401:
+					message = "Requires Authentication , Verify your Github Personal Access Token";
+					break;
+				case 403:
+					message = "Forbidden";
+					break;
+				case 500:
+					message = "Internal server error ";
+					break;
+			}
+			log.debug("Api Github call status code " + response.getStatusCode().toString());
+			log.debug("Api Github call message " + message);
+			log.debug("Api Github call body " + response.getBody());
+			List<UserGithubDTO> bodyGithub = new ArrayList<UserGithubDTO>();
+			bodyGithub.add(response.getBody());
+			return new ResponseUserJSON(message, statuscode, bodyGithub, null);
+		} catch (Exception exception) {
+			log.error("Erorosadasdasdasdsadasdsa", exception.getCause());
+			log.error("Eroro sadasdasdasdasdas", exception.getMessage());
+			log.error("Eroro sadasdasd", exception.getStackTrace());
+			log.warn("Error while query , exception occured");
+		}
+	return null;
 	}
 
 	@Override
 	public User getAuthenticatedUser() {
-		// TODO Auto-generated method stub
+
 		return null;
 	}
 
 	@Override
 	public User GetUserByUserName(String username) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public User UpdateAuthUserName(String name) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public User UpdateProfile(User user) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public void AddProjectCollaborator(User user, long projectId) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public User GetProjectCollaboratorPermission(long projectId) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public List<User> GetProjectCollaborators(long projectId) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public void DeleteProjectCollaborator(long projectId, String username) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public List<Project> ListUserProjects(String userId) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public User SetUserPermissionToProject(long userId, long projectId, String permission) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public User AddUserToTeam(long userId, long teamId) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public List<User> ListUsersByTeam(long teamId) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public List<Team> ListUserTeams(long userId) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public List<Team> UpdateUserTeams(long userId) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public void DeleteUserFromTeam(long userId, long teamId) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public List<GithubRepository> GetUserRepositories(String username) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public List<Issue> GetUserIssues(long userId) {
-		// TODO Auto-generated method stub
 		return null;
 	}
+
 
 
 }
