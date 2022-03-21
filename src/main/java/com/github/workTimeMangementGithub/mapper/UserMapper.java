@@ -17,11 +17,8 @@ public class UserMapper {
 		user.setId(userDto.getId());
 		user.setUsername(userDto.getUsername());
 		user.setPassword(userDto.getPassword());
-		user.setLastname(userDto.getLastname());
 		user.setName(userDto.getName());
 		user.setEmail(userDto.getEmail());
-		user.setRole(userDto.getRole());
-		user.setPermission(userDto.getPermission());
 		user.setGithubPersonalAcessToken(userDto.getGithubPersonalAcessToken());
 		user.setAvatar(userDto.getAvatar());
 		user.setTeams(TeamMapper.toListEntity(userDto.getTeams()));
@@ -36,11 +33,8 @@ public class UserMapper {
 		user.setId(userDto.getId());
 		user.setUsername(userDto.getUsername());
 		user.setPassword(userDto.getPassword());
-		user.setLastname(userDto.getLastname());
 		user.setName(userDto.getName());
 		user.setEmail(userDto.getEmail());
-		user.setRole(userDto.getRole());
-		user.setPermission(userDto.getPermission());
 		user.setGithubPersonalAcessToken(userDto.getGithubPersonalAcessToken());
 		user.setAvatar(userDto.getAvatar());
 		user.setTeams(TeamMapper.toListEntity(userDto.getTeams()));
@@ -55,11 +49,8 @@ public class UserMapper {
 		userDto.setId(user.getId());
 		userDto.setUsername(user.getUsername());
 		userDto.setPassword(user.getPassword());
-		userDto.setLastname(user.getLastname());
 		userDto.setName(user.getName());
 		userDto.setEmail(user.getEmail());
-		userDto.setRole(user.getRole());
-		userDto.setPermission(user.getPermission());
 		userDto.setGithubPersonalAcessToken(user.getGithubPersonalAcessToken());
 		userDto.setAvatar(user.getAvatar());
 		userDto.setTeams(TeamMapper.toListDTO(user.getTeams()));
@@ -74,11 +65,8 @@ public class UserMapper {
 		userDto.setId(user.getId());
 		userDto.setUsername(user.getUsername());
 		userDto.setPassword(user.getPassword());
-		userDto.setLastname(user.getLastname());
 		userDto.setName(user.getName());
 		userDto.setEmail(user.getEmail());
-		userDto.setRole(user.getRole());
-		userDto.setPermission(user.getPermission());
 		userDto.setGithubPersonalAcessToken(user.getGithubPersonalAcessToken());
 		userDto.setAvatar(user.getAvatar());
 		userDto.setTeams(TeamMapper.toListDTO(user.getTeams()));

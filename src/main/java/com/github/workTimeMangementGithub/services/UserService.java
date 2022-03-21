@@ -41,12 +41,13 @@ public class UserService implements IUserService {
 	public ResponseUserJSON getAuthenticatedUserAPI(String token) {
 		// TODO Auto-generated method stub
 		String url = this.apiBaseUrl + "/user";
+		ResponseEntity<UserGithubDTO> response;
 		try {
 			HttpHeaders headers = new HttpHeaders();
 			headers.setContentType(MediaType.APPLICATION_JSON);
 			headers.set("Authorization", "Bearer " + token);
 			HttpEntity<String> entity = new HttpEntity<String>(headers);
-			ResponseEntity<UserGithubDTO> response = restTemplate.exchange(url, HttpMethod.GET, entity, UserGithubDTO.class);
+			response = restTemplate.exchange(url, HttpMethod.GET, entity, UserGithubDTO.class);
 			int statuscode = response.getStatusCode().value();
 			String message = "";
 			switch (statuscode) {
@@ -62,6 +63,9 @@ public class UserService implements IUserService {
 				case 403:
 					message = "Forbidden";
 					break;
+				case 500:
+					message = "Internal server error ";
+					break;
 
 			}
 			log.debug("Api Github call status code " + response.getStatusCode().toString());
@@ -71,11 +75,17 @@ public class UserService implements IUserService {
 			bodyGithub.add(response.getBody());
 			return new ResponseUserJSON(message, statuscode, bodyGithub, null);
 		} catch (Exception exception) {
-			log.error("Eroro", exception);
+			log.error("Erorosadasdasdasdsadasdsa", exception.getCause());
+			log.error("Eroro sadasdasdasdasdas", exception.getMessage());
+			log.error("Eroro sadasdasd", exception.getStackTrace());
+			log.warn("Error while query , exception occured");
+			//log.warn("Api Github call status code " + response.getStatusCode().toString());
+			//log.warn("Api Github call message " + message);
+			//log.warn("Api Github call body " + response.getBody());
+			//return new ResponseUserJSON("Internal server error", 500,null,null );
 		}
+     return null;
 
-
-		return null;
 	}
 
 	@Override

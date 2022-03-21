@@ -1,6 +1,7 @@
 package com.github.workTimeMangementGithub.config;
 
 
+import com.github.workTimeMangementGithub.entities.User;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
@@ -15,5 +16,7 @@ public class GithubConfiguration {
     return  new RestTemplate();
   }
 
+  @Bean
+ public User  UserConstructor() { return new User(); }
 
 }

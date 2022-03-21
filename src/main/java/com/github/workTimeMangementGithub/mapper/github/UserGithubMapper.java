@@ -17,11 +17,8 @@ public class UserGithubMapper {
 		user.setId(userDto.getId());
 		user.setUsername(userDto.getLogin());
 		user.setPassword(userDto.getPassword());
-		user.setLastname(userDto.getLastname());
 		user.setName(userDto.getName());
 		user.setEmail(userDto.getEmail());
-		user.setRole(userDto.getRole());
-		user.setPermission(userDto.getPermission());
 		user.setGithubPersonalAcessToken(userDto.getGithubPersonalAcessToken());
 		user.setAvatar(userDto.getAvatar_url());
 		user.setTeams(TeamGithubMapper.toListEntity(userDto.getTeams()));
@@ -36,11 +33,8 @@ public class UserGithubMapper {
 		user.setId(userDto.getId());
 		user.setUsername(userDto.getLogin());
 		user.setPassword(userDto.getPassword());
-		user.setLastname(userDto.getLastname());
 		user.setName(userDto.getName());
 		user.setEmail(userDto.getEmail());
-		user.setRole(userDto.getRole());
-		user.setPermission(userDto.getPermission());
 		user.setGithubPersonalAcessToken(userDto.getGithubPersonalAcessToken());
 		user.setAvatar(userDto.getAvatar_url());
 		user.setTeams(TeamGithubMapper.toListEntity(userDto.getTeams()));
@@ -55,11 +49,8 @@ public class UserGithubMapper {
 		userDto.setId(user.getId());
 		userDto.setLogin(user.getUsername());
 		userDto.setPassword(user.getPassword());
-		userDto.setLastname(user.getLastname());
 		userDto.setName(user.getName());
 		userDto.setEmail(user.getEmail());
-		userDto.setRole(user.getRole());
-		userDto.setPermission(user.getPermission());
 		userDto.setGithubPersonalAcessToken(user.getGithubPersonalAcessToken());
 		userDto.setAvatar_url(user.getAvatar());
 		userDto.setTeams(TeamGithubMapper.toListDTO(user.getTeams()));
@@ -74,11 +65,8 @@ public class UserGithubMapper {
 		userDto.setId(user.getId());
 		userDto.setLogin(user.getUsername());
 		userDto.setPassword(user.getPassword());
-		userDto.setLastname(user.getLastname());
 		userDto.setName(user.getName());
 		userDto.setEmail(user.getEmail());
-		userDto.setRole(user.getRole());
-		userDto.setPermission(user.getPermission());
 		userDto.setGithubPersonalAcessToken(user.getGithubPersonalAcessToken());
 		userDto.setAvatar_url(user.getAvatar());
 		userDto.setTeams(TeamGithubMapper.toListDTO(user.getTeams()));

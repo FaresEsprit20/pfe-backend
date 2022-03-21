@@ -38,17 +38,9 @@ public class User implements Serializable {
 	@Column(length = 20)
 	private String password = "member";
 	@Column(length = 30, nullable = true)
-	private String lastname;
-	@Column(length = 30, nullable = true)
 	private String name;
 	@Column(unique = true, nullable = true)
 	private String email;
-	@Column(nullable = true)
-	@Enumerated(EnumType.STRING)
-	private UserRoleType role = UserRoleType.MEMBER;
-	//can be read,write or admin or owner
-	@Column(length = 10)
-	private String permission = "read";
 	@Column(unique = true)
 	private String githubPersonalAcessToken;
 	@Column(nullable = true)
